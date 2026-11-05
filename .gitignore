@@ -12,7 +12,11 @@ __pycache__/
 weights/
 
 # Video outputs & large files (Do NOT upload to Git)
-outputs/
+/outputs/*
+!/outputs/benchmarks/
+/outputs/benchmarks/*
+!/outputs/benchmarks/benchmark_results.csv
+!/outputs/benchmarks/benchmark_summary.json
 *.mp4
 *.avi
 *.mkv

@@ -1,0 +1,9 @@
+model,sport,device,frames_processed,imgsz,conf_threshold,inference_time_sec,total_pipeline_time_sec,inference_fps,pipeline_fps,peak_vram_mb,person_detections_total,person_detections_per_frame,ball_detections_total,ball_detections_per_frame,zero_ball_frames_pct
+yolov8n.pt,football,cuda:0,750,640,0.25,12.666,17.666,59.21,42.46,17.53,10241,13.65,3,0.004,99.6
+yolov8s.pt,football,cuda:0,750,640,0.25,11.3,15.24,66.37,49.21,48.68,11350,15.13,51,0.068,93.2
+yolo11n.pt,football,cuda:0,750,640,0.25,13.663,17.424,54.89,43.04,50.06,9782,13.04,3,0.004,99.6
+yolo11s.pt,football,cuda:0,750,640,0.25,13.712,17.455,54.7,42.97,74.64,11254,15.01,6,0.008,99.2
+yolov8n.pt,basketball,cuda:0,900,640,0.25,16.827,56.703,53.48,15.87,69.01,14899,16.55,40,0.044,95.78
+yolov8s.pt,basketball,cuda:0,900,640,0.25,16.544,56.066,54.4,16.05,83.34,17595,19.55,111,0.123,88.22
+yolo11n.pt,basketball,cuda:0,900,640,0.25,19.502,55.939,46.15,16.09,67.5,12932,14.37,16,0.018,98.22
+yolo11s.pt,basketball,cuda:0,900,640,0.25,19.525,56.591,46.1,15.9,83.48,14411,16.01,10,0.011,98.89
