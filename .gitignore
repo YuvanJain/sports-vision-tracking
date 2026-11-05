@@ -1,0 +1,39 @@
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Model weights (Do NOT upload to Git)
+*.pt
+*.pth
+*.onnx
+*.bin
+weights/
+
+# Video outputs & large files (Do NOT upload to Git)
+outputs/
+*.mp4
+*.avi
+*.mkv
+*.mov
+
+# Checkpoints
+checkpoints/
+*.pkl
+
+# Virtual environment
+venv/
+env/
+.env
+
+# Jupyter & Colab checkpoints
+.ipynb_checkpoints/
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+
+# Local frames extracted from assignment footage
+analysis_samples/

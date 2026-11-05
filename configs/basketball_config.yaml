@@ -1,0 +1,47 @@
+# Basketball Pipeline Configuration
+sport: "basketball"
+
+video:
+  path: "Data/Basketball.mp4"
+  native_fps: 30.0
+  original_resolution: [3840, 2160]  # [width, height] 4K UHD
+  inference_resolution: [1920, 1080] # [width, height] 1080p for memory-safe processing
+
+# 10-Minute Target Deliverable Segment
+# Strictly zero-based, end-exclusive: [start_frame, end_frame)
+segment:
+  start_frame: 900
+  end_frame: 18900
+  total_frames: 18000       # 18900 - 900 = 18,000 frames
+  start_time: "00:00:30"    # 900 / 30.0 = 30.0s
+  duration_sec: 600.0       # 18000 / 30.0 = 600.0s (10 min 00s)
+
+# 5-Chunk Checkpoint Partitioning (120s / 3,600 frames per chunk)
+chunks:
+  - id: 1
+    start_frame: 900
+    end_frame: 4500
+    expected_frames: 3600
+  - id: 2
+    start_frame: 4500
+    end_frame: 8100
+    expected_frames: 3600
+  - id: 3
+    start_frame: 8100
+    end_frame: 11700
+    expected_frames: 3600
+  - id: 4
+    start_frame: 11700
+    end_frame: 15300
+    expected_frames: 3600
+  - id: 5
+    start_frame: 15300
+    end_frame: 18900
+    expected_frames: 3600
+
+# Benchmark Sample Segment (30 seconds = 900 frames)
+benchmark_sample:
+  start_frame: 900
+  end_frame: 1800           # [900, 1800) = 900 frames
+  expected_frames: 900
+

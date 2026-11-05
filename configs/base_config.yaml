@@ -1,0 +1,28 @@
+# Shared Base Configuration for Sports Vision Tracking
+# Units and Standards:
+# - Frame intervals: [start_frame, end_frame) - zero-based, end-exclusive
+# - Coordinate system: Absolute pixels [x1, y1, x2, y2] and normalized [0.0, 1.0]
+
+project:
+  name: "Sports Vision Tracking"
+  version: "1.0.0"
+
+hardware:
+  device: "cuda:0"          # Fallback to "cpu" if CUDA unavailable
+  use_half_precision: true  # FP16 inference on GPU for speed & memory efficiency
+
+segment_defaults:
+  duration_sec: 600.0       # Exactly 10 minutes (600.0 seconds)
+  num_chunks: 5             # 5 chunks of 120.0 seconds (2 minutes) each
+
+benchmark:
+  sample_duration_sec: 30.0 # 30 seconds for quick, identical benchmarking
+  confidence_threshold: 0.25 # Standard COCO benchmark threshold
+  iou_threshold: 0.45       # Standard NMS IoU threshold
+  warmup_frames: 30         # Warm-up frames to stabilize GPU kernels
+  models:
+    - "yolov8n.pt"
+    - "yolov8s.pt"
+    - "yolo11n.pt"
+    - "yolo11s.pt"
+
