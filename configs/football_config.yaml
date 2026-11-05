@@ -44,3 +44,14 @@ benchmark_sample:
   end_frame: 2250           # [1500, 2250) = 750 frames
   expected_frames: 750
 
+tracking:
+  output_dir: "outputs/football"
+  imgsz: 640
+  ball_confidence: 0.25
+  ball_fallback_imgsz: 1280
+  # OpenCV HSV ranges for this match. Red wraps around hue 179.
+  jersey_hsv:
+    A: [[[0, 75, 45], [12, 255, 255]], [[165, 75, 45], [179, 255, 255]]]
+    B: [[[100, 65, 40], [145, 255, 255]]]
+    referee: [[[43, 115, 110], [78, 255, 255]]]
+
