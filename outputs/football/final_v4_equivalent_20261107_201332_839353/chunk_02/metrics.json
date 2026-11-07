@@ -1,0 +1,122 @@
+{
+  "chunk_id": 2,
+  "start_frame": 4500,
+  "end_frame_exclusive": 7500,
+  "first_timestamp_sec": 180.0,
+  "last_timestamp_sec": 299.96,
+  "settings": {
+    "output_dir": "outputs/football",
+    "imgsz": 960,
+    "nms_iou": 0.6,
+    "bytetrack": {
+      "track_high_thresh": 0.25,
+      "track_low_thresh": 0.1,
+      "new_track_thresh": 0.4,
+      "track_buffer": 60,
+      "match_thresh": 0.8,
+      "fuse_score": true
+    },
+    "ball_confidence": 0.3,
+    "ball_fallback_imgsz": 1280,
+    "ball_tiles": true,
+    "ball_tile_confidence": 0.4,
+    "pitch": {
+      "enabled": true,
+      "hsv_low": [
+        25,
+        35,
+        30
+      ],
+      "hsv_high": [
+        95,
+        255,
+        255
+      ],
+      "min_area_fraction": 0.12,
+      "margin_cells": 11,
+      "boundary_grace_frames": 3,
+      "boundary_grace_iou": 0.3,
+      "min_confirmed_frames": 5
+    },
+    "classification": {
+      "min_color_fraction": 0.3,
+      "min_color_margin": 0.15,
+      "min_votes": 5,
+      "vote_fraction": 0.85
+    },
+    "jersey_hsv": {
+      "A": [
+        [
+          [
+            0,
+            75,
+            45
+          ],
+          [
+            12,
+            255,
+            255
+          ]
+        ],
+        [
+          [
+            165,
+            75,
+            45
+          ],
+          [
+            179,
+            255,
+            255
+          ]
+        ]
+      ],
+      "B": [
+        [
+          [
+            100,
+            65,
+            40
+          ],
+          [
+            145,
+            255,
+            255
+          ]
+        ]
+      ],
+      "referee": [
+        [
+          [
+            43,
+            115,
+            110
+          ],
+          [
+            78,
+            255,
+            255
+          ]
+        ]
+      ]
+    }
+  },
+  "ball_fallback": true,
+  "frames_processed": 3000,
+  "elapsed_sec": 477.485,
+  "pipeline_fps": 6.28,
+  "unique_person_track_ids": 410,
+  "object_rows_by_label": {
+    "A": 18855,
+    "referee": 2591,
+    "B": 18202,
+    "unknown_person": 10579,
+    "ball": 498
+  },
+  "ball_frames_by_pass": {
+    "tile": 202,
+    "high_resolution": 174,
+    "base": 122
+  },
+  "ball_frame_coverage_pct": 16.6
+}

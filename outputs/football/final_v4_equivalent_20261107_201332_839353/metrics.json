@@ -1,0 +1,33 @@
+{
+  "start_frame": 1500,
+  "end_frame_exclusive": 16500,
+  "frames_processed": 15000,
+  "unique_person_track_ids": 1950,
+  "object_rows_by_label": {
+    "unknown_person": 67502,
+    "ball": 2950,
+    "A": 89345,
+    "B": 73018,
+    "referee": 13839
+  },
+  "ball_frames_by_pass": {
+    "base": 983,
+    "high_resolution": 975,
+    "tile": 992
+  },
+  "ball_frame_coverage_pct": 19.67,
+  "elapsed_sec": 2322.326,
+  "pipeline_fps": 6.46,
+  "chunk_metrics": [
+    "chunk_01/metrics.json",
+    "chunk_02/metrics.json",
+    "chunk_03/metrics.json",
+    "chunk_04/metrics.json",
+    "chunk_05/metrics.json"
+  ],
+  "limitations": [
+    "No ground truth: detection and classification accuracy are not measured.",
+    "Ball coverage is model detections, not verified ball identity.",
+    "Track gaps, identity switches and team correctness require separate analysis."
+  ]
+}

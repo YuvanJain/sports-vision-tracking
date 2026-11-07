@@ -17,6 +17,17 @@ weights/
 /outputs/benchmarks/*
 !/outputs/benchmarks/benchmark_results.csv
 !/outputs/benchmarks/benchmark_summary.json
+!/outputs/football/
+/outputs/football/*
+!/outputs/football/final_v4_equivalent_20261107_201332_839353/
+/outputs/football/final_v4_equivalent_20261107_201332_839353/*
+!/outputs/football/final_v4_equivalent_20261107_201332_839353/metrics.json
+!/outputs/football/final_v4_equivalent_20261107_201332_839353/chunk_*/
+/outputs/football/final_v4_equivalent_20261107_201332_839353/chunk_*/*
+!/outputs/football/final_v4_equivalent_20261107_201332_839353/chunk_*/tracks.csv
+!/outputs/football/final_v4_equivalent_20261107_201332_839353/chunk_*/tracks.json
+!/outputs/football/final_v4_equivalent_20261107_201332_839353/chunk_*/metrics.json
+!/outputs/football/final_v4_equivalent_20261107_201332_839353/chunk_*/pitch_diagnostics.jsonl
 *.mp4
 *.avi
 *.mkv
@@ -30,6 +41,11 @@ checkpoints/
 venv/
 env/
 .env
+.env.*
+*.pem
+*.key
+credentials*.json
+*.zip
 
 # Jupyter & Colab checkpoints
 .ipynb_checkpoints/

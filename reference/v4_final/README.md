@@ -1,0 +1,11 @@
+# Final football workflow (V4-equivalent)
+
+This is a separate final-run wrapper around the reconstructed V4-equivalent detector, pitch filter, jersey classifier, and ByteTrack settings. It uses the same YOLOv8s weights name (`yolov8s.pt`), settings, ball fallback, and diagnostic rendering. It does not claim source identity with the lost original V4 implementation.
+
+Open `notebooks/02_final_football_10min.ipynb` in a fresh Colab T4 runtime and upload `sports_vision_v4_final.zip` to `/content/`. The notebook mounts Google Drive, symlinks `/content/drive/MyDrive/Sports Vision Tracking/Data/Football.mp4`, and installs the packaged requirements. Execute code cell 1 (setup), then code cell 2 (preflight). Check actual Google Drive quota independently because mounted filesystem free space can differ from cloud quota. Code cell 3, under **Full 10-minute GPU job**, is the only inference launch. Do not use Run all. Code cell 4 checks completed artifacts.
+
+The final script streams source frames `[1500, 16500)` once at 25 FPS, using one detector, tracker, classifier, boundary-grace history, and cumulative pitch-evidence map. It writes five chunks of 3,000 frames each. Each chunk contains `annotated.mp4`, `tracks.csv`, `tracks.json`, `metrics.json`, `pitch_diagnostics.mp4`, and `pitch_diagnostics.jsonl`. Global frame IDs and timestamps remain in every export. The final run folder also contains aggregate `metrics.json`. Output directory: `/content/drive/MyDrive/Sports Vision Tracking/outputs/football/final_v4_equivalent_<UTC timestamp>/`.
+
+Per-chunk metrics count observed labels, ball frames, unique person IDs, elapsed time, and throughput. Overall unique IDs come from a union across all chunks, so per-chunk ID counts must not be summed. These metrics do not establish correct identities, team accuracy, ball identity, or actual ID-switch rate without annotations.
+
+If Colab disconnects, inspect completed `chunk_XX` folders. A partial chunk may have an empty or incomplete folder. No tracker, jersey, or pitch state checkpoint is serialized. **Restart the full interval in a new timestamped folder** to preserve globally consistent IDs; do not start at a later chunk and present it as a continuous run. Do not rerun the inference cell just to verify outputs: run the artifact-check cell using the previous `RUN` path instead.
