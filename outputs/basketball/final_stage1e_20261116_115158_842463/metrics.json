@@ -1,0 +1,66 @@
+{
+  "version": "basketball_v5_7_stage1e_final",
+  "start_frame": 900,
+  "end_frame_exclusive": 18900,
+  "frames_processed": 18000,
+  "chunk_frames": 3600,
+  "chunk_count": 5,
+  "unique_person_track_ids": 5394,
+  "ball_detected_frames": 1076,
+  "chunk_metrics": [
+    {
+      "start_frame": 900,
+      "end_frame_exclusive": 4500,
+      "frames_processed": 3600,
+      "unique_person_track_ids": 1237,
+      "ball_detected_frames": 243,
+      "visible_person_annotation_rows": 51475,
+      "elapsed_sec": 601.602,
+      "shot_detection_implemented": false
+    },
+    {
+      "start_frame": 4500,
+      "end_frame_exclusive": 8100,
+      "frames_processed": 3600,
+      "unique_person_track_ids": 984,
+      "ball_detected_frames": 139,
+      "visible_person_annotation_rows": 57585,
+      "elapsed_sec": 599.539,
+      "shot_detection_implemented": false
+    },
+    {
+      "start_frame": 8100,
+      "end_frame_exclusive": 11700,
+      "frames_processed": 3600,
+      "unique_person_track_ids": 934,
+      "ball_detected_frames": 301,
+      "visible_person_annotation_rows": 49309,
+      "elapsed_sec": 595.74,
+      "shot_detection_implemented": false
+    },
+    {
+      "start_frame": 11700,
+      "end_frame_exclusive": 15300,
+      "frames_processed": 3600,
+      "unique_person_track_ids": 1077,
+      "ball_detected_frames": 142,
+      "visible_person_annotation_rows": 58138,
+      "elapsed_sec": 596.128,
+      "shot_detection_implemented": false
+    },
+    {
+      "start_frame": 15300,
+      "end_frame_exclusive": 18900,
+      "frames_processed": 3600,
+      "unique_person_track_ids": 1258,
+      "ball_detected_frames": 251,
+      "visible_person_annotation_rows": 46512,
+      "elapsed_sec": 601.825,
+      "shot_detection_implemented": false
+    }
+  ],
+  "elapsed_sec": 2996.966,
+  "shot_detection_implemented": false,
+  "shot_outcomes": "not available; event and shot_outcome fields are null",
+  "limitations": "Predicted tracking and roles require visual review; no made/missed shot recognition."
+}

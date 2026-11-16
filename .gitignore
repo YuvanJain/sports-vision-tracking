@@ -17,6 +17,15 @@ weights/
 /outputs/benchmarks/*
 !/outputs/benchmarks/benchmark_results.csv
 !/outputs/benchmarks/benchmark_summary.json
+!/outputs/basketball/
+/outputs/basketball/*
+!/outputs/basketball/final_stage1e_20261116_115158_842463/
+/outputs/basketball/final_stage1e_20261116_115158_842463/*
+!/outputs/basketball/final_stage1e_20261116_115158_842463/metrics.json
+!/outputs/basketball/final_stage1e_20261116_115158_842463/chunk_0[1-5]/
+/outputs/basketball/final_stage1e_20261116_115158_842463/chunk_0[1-5]/*
+!/outputs/basketball/final_stage1e_20261116_115158_842463/chunk_0[1-5]/tracks.csv
+!/outputs/basketball/final_stage1e_20261116_115158_842463/chunk_0[1-5]/metrics.json
 !/outputs/football/
 /outputs/football/*
 !/outputs/football/final_v4_equivalent_20261107_201332_839353/

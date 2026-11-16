@@ -1,0 +1,10 @@
+{
+  "start_frame": 8100,
+  "end_frame_exclusive": 11700,
+  "frames_processed": 3600,
+  "unique_person_track_ids": 934,
+  "ball_detected_frames": 301,
+  "visible_person_annotation_rows": 49309,
+  "elapsed_sec": 595.74,
+  "shot_detection_implemented": false
+}
