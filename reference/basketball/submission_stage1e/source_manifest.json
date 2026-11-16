@@ -1,0 +1,26 @@
+{
+  "version": "basketball_stage1e_github_submission",
+  "source": "frozen final Stage1E snapshot",
+  "sha256": {
+    "scripts/track_basketball_final.py": "dac36bb335214756e461052b08cb0051105d4cf08e8c495a7bfcf11dfebd22a6",
+    "scripts/verify_final.py": "3ebd274c4e9d3411d8cb3fc83f3ab1d004afe0be5b8d04e914f5a059b58707a5",
+    "configs/basketball_config.yaml": "3e699f6ccea3e2867a5a0c35369d06b1837cec9c19aecf60b08c760141cc6b65",
+    "requirements.txt": "d14fc098e759e9af5babde3693178981d2ee8388ce7568b999d48b0dcc941883",
+    "src/__init__.py": "73d2b0374cdf2e87170bde7dd01ebf848ce76621b1c06edf08d2334c58973999",
+    "src/common/basketball_closeup_referee.py": "931692bcb3304d2cca4a9225af7c016bd7ecae0cf4c5106275611e220dde76d2",
+    "src/common/basketball_roles.py": "3782ad9a311cb0c7be45fcdcd7aec9af1f1553e831104cd25f807e5272de1bac",
+    "src/common/basketball_scene.py": "ff0657a34da8c51dd632485dd60843b4064d5b117cce8d72752e75c33b9e1b8e",
+    "src/common/basketball_stage1b.py": "09840d37169d4ec4fbd0a20a1e79914436a7d3dae024c0f1e207c4b05831b128",
+    "src/common/basketball_stage1c.py": "50a212cde9e7e37b19fc71b1d245df324d0ab74191e3befd5fa5aa0c56d4e410",
+    "src/common/basketball_stage1e.py": "efb1eb342dea7a37cf579f9cfdbdcce8196723115896e9e8185a0a1b8e497387",
+    "src/common/basketball_v5.py": "481ae523bdeb65ff930ac56eb9e3b8b26b02be1d27078ca4a58cc850c8855d0d",
+    "src/common/basketball_v52.py": "d4cec7e2701fce003d7dcbd2deb302ce1f12621b6476117456e279dd54f1976b",
+    "src/common/basketball_v53.py": "4f6b07c76cd30f2a7443332ec72df4ecb313b4e02d928bb4d72fccce135e40cd",
+    "src/common/basketball_v54.py": "7284c6044dcc9abe7b8d05ec54f1eef37a4bb280854efd555848143038aaf6ea",
+    "src/common/basketball_v54_participation.py": "b96b44e8a03c7ada23b5630b205a68332455ab9db14d6f1eb9bbb97df45c8412",
+    "src/common/basketball_v55_team.py": "ef280e5ae9f8dbcf41639121f5336865cf13b83a57a8f83fa02c1e8673aea8ce",
+    "src/common/basketball_v57.py": "30804ceafcfeffe5aad56c6005ffd9f44ec7895a74fb678b08a05af78464da54",
+    "src/common/video_loader.py": "9904a6bfd0be6d08b3f8a2ea746ea9904fa4a17f58f28c6ad4d4872f5f67cb27",
+    "src/common/__init__.py": "9ddc177221f190861f3061ef7cb189c82c5b9da7a01727f942987d0ea4c79d6b"
+  }
+}

@@ -1,0 +1,282 @@
+sport: basketball
+video:
+  path: Data/Basketball.mp4
+  expected_fps: 30
+  original_resolution: [3840, 2160]
+  inference_resolution: [1920, 1080]
+smoke:
+  start_frame: 900
+  end_frame_exclusive: 1350
+targeted_trials:
+  player_closeup_review_1:
+    start_frame: 4400
+    end_frame_exclusive: 4540
+  player_closeup_review_2:
+    start_frame: 17020
+    end_frame_exclusive: 17190
+  player_closeup_review_3:
+    start_frame: 18520
+    end_frame_exclusive: 18680
+  confirmed_closeup:
+    start_frame: 9565
+    end_frame_exclusive: 9735
+  spectator_heavy:
+    start_frame: 16620
+    end_frame_exclusive: 16890
+final:
+  start_frame: 900
+  end_frame_exclusive: 18900
+  chunk_frames: 3600
+  chunk_count: 5
+model:
+  weights: yolov8s.pt
+  imgsz: 960
+  confidence: 0.10
+  nms_iou: 0.60
+  ball_confidence: 0.30
+  ball_fallback: false
+  ball_fallback_imgsz: 1280
+tracking:
+  track_high_thresh: 0.25
+  track_low_thresh: 0.10
+  new_track_thresh: 0.40
+  track_buffer: 60
+  match_thresh: 0.80
+  fuse_score: true
+classification:
+  # Upper-torso crop; role evidence is diagnostic and not a trained classifier.
+  torso_y: [0.20, 0.47]
+  torso_x: [0.28, 0.72]
+  referee_torso_y: [0.18, 0.50]
+  referee_torso_x: [0.20, 0.80]
+  referee_center_x: [0.30, 0.70]
+  referee_center_column_coherence: 0.45
+  min_torso_pixels: 12
+  # V5 evidence from lower uniform; white staff shirts alone are insufficient.
+  lower_uniform_y: [0.52, 0.78]
+  lower_uniform_x: [0.25, 0.75]
+  team_a_min_white: 0.34
+  team_a_max_purple: 0.14
+  team_b_min_purple: 0.16
+  team_b_min_purple_to_white_ratio: 0.40
+  vote_window: 24
+  vote_max_age_frames: 30
+  switch_min_votes: 8
+  jersey_hsv:
+    A: [[[0, 0, 175], [179, 65, 255]]]
+    B: [[[115, 65, 35], [165, 255, 255]]]
+  min_votes: 4
+  vote_fraction: 0.72
+  # A/B color only counters weak stripe evidence; coherent stripes can still
+  # identify a black-and-white referee despite white pixels in the shirt.
+  strong_team_a_white: 0.56
+  strong_team_a_max_dark: 0.08
+  strong_team_b_purple: 0.28
+  referee_dark_value_max: 85
+  referee_light_value_min: 155
+  referee_light_saturation_max: 100
+  referee_column_coherence: 0.58
+  referee_min_band_width: 3
+  referee_max_band_width: 20
+  referee_min_transitions: 4
+  referee_min_dark_bands: 2
+  referee_min_light_bands: 2
+  referee_min_coverage: 0.60
+  referee_min_dark_fraction: 0.14
+  referee_min_light_fraction: 0.14
+court_evidence:
+  # Connected, central wood/blue playing floor; used for role eligibility only.
+  wood_hsv: [[5, 10, 55], [35, 185, 255]]
+  blue_hsv: [[90, 45, 35], [135, 255, 255]]
+  min_component_fraction: 0.12
+  floor_margin_pixels: 28
+  foot_patch_height_fraction: 0.06
+  min_floor_fraction: 0.35
+  evidence_window: 18
+  min_confirmed_frames: 6
+  boundary_grace_frames: 4
+  interior_erode_pixels: 28
+  # Camera-relative floor-depth cue, not a fixed image rectangle or polygon.
+  playline_quantile: 0.25
+participant:
+  # V5 instant evidence is then stabilized by a short, reversible vote.
+  role_window: 8
+  role_min_votes: 2
+  boundary_margin: 0.01
+  a_shirt_min: 0.30
+  b_shirt_min: 0.16
+  a_lower_min: 0.27
+  b_lower_min: 0.07
+  referee_min_transitions: 1
+  referee_min_coverage: 0.50
+  referee_min_dark: 0.20
+  referee_min_lower_dark: 0.20
+  # Calibrated only with reviewed frames 900, 930 and 1050.
+  referee_center_min_transitions: 1
+  referee_center_min_coverage: 0.72
+  referee_center_min_dark: 0.35
+  referee_center_min_light: 0.22
+  window: 24
+  min_age_frames: 8
+  min_court_observations: 7
+  min_interior_observations: 3
+  recent_court_window: 6
+  min_recent_court_observations: 2
+  boundary_court_observations: 8
+  previous_active_grace_frames: 20
+  nonparticipant_min_age_frames: 12
+  nonparticipant_outside_fraction: 0.75
+  nonparticipant_min_distance_fraction: 0.07
+  referee_window: 18
+  referee_min_votes: 5
+  referee_min_valid_crops: 8
+  referee_min_vote_fraction: 0.40
+  referee_max_team_conflicts: 2
+  referee_recent_stripe_frames: 4
+  show_uncertain_near_court: true
+participant_v52:
+  # Camera-relative cohort plus repeated evidence. These are conservative
+  # heuristics; no single floor pixel, footpoint, shirt, or motion cue proves a role.
+  evidence_window: 12
+  min_cohort_count: 2
+  foreground_min_foot: 0.88
+  foreground_without_cohort_foot: 0.90
+  foreground_cohort_gap: 0.06
+  foreground_window: 6
+  revoke_foreground_votes: 2
+  player_cohort_margin: 0.08
+  player_min_votes: 3
+  active_grace_frames: 8
+  ref_min_coverage: 0.45
+  ref_min_dark: 0.25
+  ref_min_light: 0.20
+  ref_min_lower_dark: 0.20
+  ref_veto_purple_shirt: 0.14
+  ref_veto_purple_lower: 0.15
+  ref_veto_yellow_lower: 0.15
+  ref_min_votes: 2
+  table_playline_gap: 0.10
+  table_max_height: 0.11
+  table_min_coverage: 0.30
+  table_min_light: 0.16
+  table_max_residual: 0.006
+  table_min_votes: 5
+  table_min_group: 2
+  table_group_margin: 0.04
+  # V5.4: no-cohort views cannot establish a new player. Prior reliable
+  # foreground evidence requires several good cohort observations to recover.
+  foreground_memory_frames: 60
+  foreground_recovery_frames: 6
+  established_player_min_good_frames: 2
+  established_player_grace_frames: 60
+  low_cohort_interior_min_frames: 3
+  # V5.6: bounded role persistence for an already confirmed player only.
+  v56_participation_grace_frames: 12
+  v56_max_observation_gap_frames: 2
+
+referee_memory_v54:
+  duty_window_frames: 8
+  min_duty_votes: 6
+  appearance_memory_frames: 48
+  revoke_no_cue_frames: 60
+  duty_loss_revoke_frames: 3
+  player_override_consecutive: 8
+  new_referee_player_block_frames: 60
+  max_track_gap_frames: 8
+  foreground_min_recent_stripes: 2
+  foreground_ref_grace_frames: 6
+  foreground_ref_max_foot: 0.93
+
+closeup_referee_v56_final:
+  # Only when the central floor mask is uncertain during a close-up.
+  appearance_window_frames: 8
+  min_strong_votes: 4
+  min_center_stripe_transitions: 2
+  min_center_stripe_coverage: 0.50
+  min_bbox_height_fraction: 0.60
+  min_foot_fraction: 0.75
+  max_foot_fraction: 0.94
+  weak_stripe_hold_frames: 6
+  team_veto_revoke_frames: 6
+  max_observation_gap_frames: 2
+  recent_player_block_frames: 60
+  table_group_veto_count: 2
+
+team_memory_v55:
+  uncertain_role_grace_frames: 12
+  max_track_gap_frames: 20
+  active_no_jersey_expiry_frames: 30
+  switch_consecutive_votes: 8
+
+referee_hysteresis_v53:
+  # A new referee still needs V5.2's two strong stripe+duty votes.
+  # Brief weak crops retain an established role; longer uncertainty is unknown.
+  hold_weak_frames: 12
+  revoke_no_cue_frames: 60
+  player_override_consecutive: 8
+  # Avoid promoting a known/recent active player after transient stripe-like crops.
+  new_referee_player_block_frames: 60
+  # A long detection gap may indicate ID reuse or a different person.
+  max_track_gap_frames: 8
+
+# Stage 1: bounded close-up player extension. Frame units at source FPS.
+closeup_player_v57:
+  hold_frames: 30
+  max_gap_frames: 3
+  court_history_frames: 60
+  min_court_observations: 4
+  uniform_confirm_frames: 8
+  contradiction_frames: 3
+  scene_history_frames: 120
+  scene_min_cohort: 3
+  min_height_fraction: 0.40
+  min_center_x: 0.15
+  max_center_x: 0.85
+  max_foot_fraction: 0.94
+  max_center_jump: 0.22
+  max_height_ratio: 2.5
+  cut_min_shared: 3
+  cut_jump_fraction: 0.70
+
+# Stage 1B: independent CPU pixel cues; heuristic, not calibrated accuracy.
+scene_stage1b:
+  pixel_max_gap: 3
+  cut_hist_distance: 0.45
+  cut_aligned_residual: 0.16
+  cut_settle_hist: 0.15
+  cut_settle_residual: 0.12
+  floor_fragment_min_area: 0.003
+  # Visible floor after person masking: 5% plus width, markings and foot support.
+  floor_min_area: 0.05
+  floor_min_span: 0.45
+  min_marking_lines: 2
+  foot_floor_fraction: 0.30
+player_stage1b:
+  scene_window_frames: 12
+  min_scene_observations: 3
+  scene_hold_frames: 6
+  max_observation_gap: 3
+  uniform_confirm_frames: 8
+  min_person_height: 0.25
+
+# Stage 1E only: scene-local opposing-uniform context, no prior court identity.
+player_stage1e:
+  uniform_confirm_frames: 12
+  min_context_observations: 8
+  context_window_frames: 12
+  context_hold_frames: 4
+  max_observation_gap: 3
+  min_height_fraction: 0.45
+  min_aspect: 0.18
+  max_aspect: 0.80
+  edge_margin: 0.01
+  max_peer_height_ratio: 1.6
+  max_peer_foot_difference: 0.20
+  max_peer_overlap: 0.20
+  max_target_foot: 0.94
+
+final:
+  start_frame: 900
+  end_frame_exclusive: 18900
+  chunk_frames: 3600
+  chunk_count: 5
